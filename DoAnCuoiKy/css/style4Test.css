@@ -1,0 +1,128 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.sidebar {
+    background-color: #FFF0D9;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100vh;
+    transition: all .3s ease;
+    padding: 0.6rem 0.8rem;
+    overflow: hidden;
+}
+
+.sidebar:hover {
+    width: 250px;
+}
+/* -- */
+.logo {
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+}
+
+.logo img {
+    width: 40px; /* Điều chỉnh kích thước ảnh logo nhỏ lại */
+    height: auto;
+    margin-right: 10px; /* Tạo khoảng cách giữa ảnh và chữ */
+}
+
+.logo h5 {
+    font-size: 18px; /* Điều chỉnh kích thước chữ */
+    opacity: 1; /* Luôn hiển thị chữ */
+    display: flex;
+    align-items: center;
+}
+/* -- */
+
+.logo h5 {
+    color: #F9B572;
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+
+.logo h5 span {
+    color: #000000;
+}
+
+.sidebar:hover .logo h5 {
+    opacity: 1;
+}
+
+.nav-links {
+    position: relative;
+    margin-top: 2em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-links li {
+    position: relative;
+    height: 50px;
+    list-style-type: none;
+    margin: 0.8em auto;
+    width: 90%;
+}
+
+.nav-links a {
+    border-radius: 15px;
+    height: 100%;
+    width: 100%;
+    color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links li span {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar:hover .nav-links li span {
+    opacity: 1;
+}
+
+.nav-links li:last-child {
+    margin-top: auto;
+}
+
+.nav-links li a:hover {
+    background-color: white;
+    color: black;
+}
+
+.nav-links li a i {
+    min-width: 65px;
+    text-align: center;
+    height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+}
+
+#btn {
+    position: absolute;
+    color:#000000;
+    font-size: 24px;
+    top: 1rem;
+    left: 2.2rem;
+}
+
+.sidebar:hover #btn {
+    opacity: 0;
+    pointer-events: none;
+    transition: none;
+}
+
+
