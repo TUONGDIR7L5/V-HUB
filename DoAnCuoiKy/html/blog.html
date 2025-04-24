@@ -1,175 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog Page</title>
-    <style>
-        body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        }
-        header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 2rem;
-        border-bottom: 1px solid #ccc;
-        }
-        nav a {
-        margin: 0 0.8rem;
-        text-decoration: none;
-        color: black;
-        }
-        nav a.active {
-        color: red;
-        }
-        .btn {
-        padding: 0.5rem 1rem;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        }
-        .btn-outline {
-        background: transparent;
-        border: 1px solid black;
-        }
-        .btn-filled {
-        background: gold;
-        }
-        .main-highlight {
-        display: flex;
-        flex-direction: column;
-        padding: 2rem;
-        }
-        .main-highlight img {
-        width: 100%;
-        height: 200px;
-        background: #f5f1c0;
-        margin-bottom: 1rem;
-        }
-        .label {
-        background: gold;
-        display: inline-block;
-        padding: 0.2rem 0.5rem;
-        border-radius: 5px;
-        font-size: 0.8rem;
-        }
-        h2 {
-        margin: 0.5rem 0;
-        }
-        .articles-section, .student-section {
-        padding: 2rem;
-        }
-        .articles, .students {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-        }
-        .article, .student {
-        width: 30%;
-        background: #f5f1c0;
-        padding: 1rem;
-        }
-        footer {
-        background: #f9f9f9;
-        padding: 2rem;
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        }
-        footer div {
-        margin-bottom: 1rem;
-        }
-        .footer-links a {
-        display: block;
-        text-decoration: none;
-        margin: 0.2rem 0;
-        color: black;
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Blog | Smart Learning</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="../css/style4Home.css">
+<style>
+.blog-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+.blog-post {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+}
+.blog-post h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+.blog-post p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+.read-more {
+    color: #f58e42;
+    text-decoration: none;
+    font-weight: 500;
+}
+.section-title {
+    font-size: 1.5rem;
+    margin: 3rem 0 1.5rem;
+    color: #333;
+    font-weight: 600;
+}
+.quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+.quick-links div {
+    min-width: 150px;
+}
+.quick-links h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+.quick-links a {
+    display: block;
+    color: #666;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}
+.quick-links a:hover {
+    color: #f58e42;
+}
+</style>
 </head>
 <body>
-    <header>
-        <div class="logo">VI</div>
-        <nav>
-        <a href="#">Home</a>
-        <a href="#">Our Customer</a>
-        <a href="#" class="active">Blog</a>
-        <a href="#">Test</a>
-        <a href="#">About</a>
-        </nav>
-        <div>
-        <button class="btn btn-outline">Log in</button>
-        <button class="btn btn-filled">Sign up</button>
-        </div>
-    </header>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+<div class="container">
+    <a class="navbar-brand" href="#">
+    <img id="logo" src="../img/Logo50x50.png" alt="VL Logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <section class="main-highlight">
-        <img alt="highlight" />
-        <span class="label">New</span>
-        <h2>Unlocking efficiency: The Power of Learning</h2>
-        <p>Whatever you're figuring or exploring in education, unlocking key concepts and methods helps you boost your systems effectively.</p>
-        <a href="#">Read more...</a>
-    </section>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <ul class="navbar-nav me-3 align-items-center">
+        <li class="nav-item">
+        <a class="nav-link text-dark" href="home.html">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+            Our Courses
+        </a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#"><span><img src="../img/grammar.png" alt=""> Grammar</span></a></li>
+            <li><a class="dropdown-item" href="#"><span><img src="../img/vocab.png" alt=""> Vocabulary</span></a></li>
+            <li><a class="dropdown-item" href="#"><span><img src="../img/listen.png" alt=""> Listening</span></a></li>
+        </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link active fw-bold" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="test.html">Test</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="#">About</a></li>
+        <li class="nav-item">
+        <!-- Log in Button -->
+        <button id="sign-in" class="btn rounded-pill me-2 px-4 py-1" style="background-color: #fff8d4; border: 1px solid black;">Log in</button>
+        <!-- Sign up Button -->
+        <button id="sign-up" class="btn rounded-pill px-4 py-1" style="background-color: #fff8d4; border: 1px solid #f58e42;">Sign up</button>
+        </li>
+    </ul>
+    </div>
+</div>
+</nav>
 
-    <section class="articles-section">
-        <h3>Our Recent Articles:</h3>
-        <div class="articles">
-        <div class="article">
-            <h4>Unlocking efficiency: The Power of System</h4>
-            <p>Explore how systems can enhance productivity and clarity in learning...</p>
-            <a href="#">Read more...</a>
-        </div>
-        <div class="article">
-            <h4>Unlocking efficiency: The Power of System</h4>
-            <p>Explore how systems can enhance productivity and clarity in learning...</p>
-            <a href="#">Read more...</a>
-        </div>
-        <div class="article">
-            <h4>Unlocking efficiency: The Power of System</h4>
-            <p>Explore how systems can enhance productivity and clarity in learning...</p>
-            <a href="#">Read more...</a>
-        </div>
-        </div>
-    </section>
+<!-- Blog Content -->
+<div class="blog-container">
+<!-- Main Highlight -->
+<div class="blog-post">
+    <h2>Unlocking efficiency: The Power of Learning</h2>
+    <p>Whether you're a beginner or looking to improve your teammates with, we provide easy-to-follow lessons, interactive exercises, and practical vocabulary to help you learn effectively.</p>
+    <a href="#" class="read-more">Read more...</a>
+</div>
 
-    <section class="student-section">
-        <h3>Our Student’s Voice</h3>
-        <div class="students">
-        <div class="student">
-            <h4>Unlocking efficiency: The Power of System</h4>
-            <p>Students share how applying systems changed their study methods...</p>
-            <a href="#">Read more...</a>
-        </div>
-        <div class="student">
-            <h4>Unlocking efficiency: The Power of System</h4>
-            <p>Students share how applying systems changed their study methods...</p>
-            <a href="#">Read more...</a>
-        </div>
-        <div class="student">
-            <h4>Unlocking efficiency: The Power of System</h4>
-            <p>Students share how applying systems changed their study methods...</p>
-            <a href="#">Read more...</a>
-        </div>
-        </div>
-    </section>
+<!-- Recent Articles Section -->
+<h3 class="section-title">Our Recent Articles:</h3>
+<div class="blog-post">
+    <h2>Unlocking efficiency: The Power of System</h2>
+    <p>Whether you're a beginner or looking to improve your teammates with and talk...</p>
+    <a href="#" class="read-more">Read more...</a>
+</div>
 
-    <!-- Footer -->
-    <footer class="bg-white py-4 mt-5 border-top">
-        <div class="container d-flex justify-content-between flex-wrap">
-        <p>&copy; 2025 VL. All rights reserved.</p>
-        <div>
-            <a href="#" class="me-3 text-decoration-none">Privacy</a>
-            <a href="#" class="me-3 text-decoration-none">Terms</a>
-            <a href="#" class="text-decoration-none">Contact</a>
-        </div>
-        <div>
-            <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/733/733547.png" alt="FB"></a>
-            <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/733/733579.png" alt="IG"></a>
-        </div>
-        </div>
-    </footer>
+<!-- Student's Voice Section -->
+<h3 class="section-title">Our Student's Voice</h3>
+<div class="blog-post">
+    <h2>Unlocking efficiency: The Power of System</h2>
+    <p>Whether you're a beginner or looking to improve your teammates with and talk...</p>
+    <a href="#" class="read-more">Read more...</a>
+</div>
+
+<!-- Additional Blog Posts -->
+<div class="blog-post">
+    <h2>Unlocking efficiency: The Power of System</h2>
+    <p>Whether you're a beginner or looking to improve your teammates with and talk...</p>
+    <a href="#" class="read-more">Read more...</a>
+</div>
+
+<div class="blog-post">
+    <h2>Unlocking efficiency: The Power of System</h2>
+    <p>Whether you're a beginner or looking to improve your teammates with and talk...</p>
+    <a href="#" class="read-more">Read more...</a>
+</div>
+
+<div class="blog-post">
+    <h2>Unlocking efficiency: The Power of System</h2>
+    <p>Whether you're a beginner or looking to improve your teammates with and talk...</p>
+    <a href="#" class="read-more">Read more...</a>
+</div>
+
+<!-- Quick Links -->
+<div class="quick-links">
+    <div>
+    <h4>Quick Links</h4>
+    <a href="#">Test</a>
+    <a href="#">Courses</a>
+    <a href="#">Blog</a>
+    </div>
+    <div>
+    <h4>Legal</h4>
+    <a href="#">Terms & Conditions</a>
+    <a href="#">Privacy</a>
+    <a href="#">Terms of use</a>
+    <a href="#">Contact</a>
+    </div>
+    <div>
+    <h4>Social Media</h4>
+    <a href="#">Facebook</a>
+    <a href="#">Instagram</a>
+    <a href="#">Twitter</a>
+    </div>
+</div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-white py-4 mt-5 border-top">
+<div class="container d-flex justify-content-between flex-wrap">
+    <p>&copy; 2025 VL. All rights reserved.</p>
+    <div>
+    <a href="#" class="me-3 text-decoration-none">Privacy</a>
+    <a href="#" class="me-3 text-decoration-none">Terms</a>
+    <a href="#" class="text-decoration-none">Contact</a>
+    </div>
+    <div>
+    <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/733/733547.png" alt="FB"></a>
+    <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/733/733579.png" alt="IG"></a>
+    </div>
+</div>
+</footer>
 </body>
 </html>
