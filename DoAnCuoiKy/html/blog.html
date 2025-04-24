@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Page</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        }
+        header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        border-bottom: 1px solid #ccc;
+        }
+        nav a {
+        margin: 0 0.8rem;
+        text-decoration: none;
+        color: black;
+        }
+        nav a.active {
+        color: red;
+        }
+        .btn {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        }
+        .btn-outline {
+        background: transparent;
+        border: 1px solid black;
+        }
+        .btn-filled {
+        background: gold;
+        }
+        .main-highlight {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+        }
+        .main-highlight img {
+        width: 100%;
+        height: 200px;
+        background: #f5f1c0;
+        margin-bottom: 1rem;
+        }
+        .label {
+        background: gold;
+        display: inline-block;
+        padding: 0.2rem 0.5rem;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        }
+        h2 {
+        margin: 0.5rem 0;
+        }
+        .articles-section, .student-section {
+        padding: 2rem;
+        }
+        .articles, .students {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        }
+        .article, .student {
+        width: 30%;
+        background: #f5f1c0;
+        padding: 1rem;
+        }
+        footer {
+        background: #f9f9f9;
+        padding: 2rem;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        }
+        footer div {
+        margin-bottom: 1rem;
+        }
+        .footer-links a {
+        display: block;
+        text-decoration: none;
+        margin: 0.2rem 0;
+        color: black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">VI</div>
+        <nav>
+        <a href="#">Home</a>
+        <a href="#">Our Customer</a>
+        <a href="#" class="active">Blog</a>
+        <a href="#">Test</a>
+        <a href="#">About</a>
+        </nav>
+        <div>
+        <button class="btn btn-outline">Log in</button>
+        <button class="btn btn-filled">Sign up</button>
+        </div>
+    </header>
+
+    <section class="main-highlight">
+        <img alt="highlight" />
+        <span class="label">New</span>
+        <h2>Unlocking efficiency: The Power of Learning</h2>
+        <p>Whatever you're figuring or exploring in education, unlocking key concepts and methods helps you boost your systems effectively.</p>
+        <a href="#">Read more...</a>
+    </section>
+
+    <section class="articles-section">
+        <h3>Our Recent Articles:</h3>
+        <div class="articles">
+        <div class="article">
+            <h4>Unlocking efficiency: The Power of System</h4>
+            <p>Explore how systems can enhance productivity and clarity in learning...</p>
+            <a href="#">Read more...</a>
+        </div>
+        <div class="article">
+            <h4>Unlocking efficiency: The Power of System</h4>
+            <p>Explore how systems can enhance productivity and clarity in learning...</p>
+            <a href="#">Read more...</a>
+        </div>
+        <div class="article">
+            <h4>Unlocking efficiency: The Power of System</h4>
+            <p>Explore how systems can enhance productivity and clarity in learning...</p>
+            <a href="#">Read more...</a>
+        </div>
+        </div>
+    </section>
+
+    <section class="student-section">
+        <h3>Our Student’s Voice</h3>
+        <div class="students">
+        <div class="student">
+            <h4>Unlocking efficiency: The Power of System</h4>
+            <p>Students share how applying systems changed their study methods...</p>
+            <a href="#">Read more...</a>
+        </div>
+        <div class="student">
+            <h4>Unlocking efficiency: The Power of System</h4>
+            <p>Students share how applying systems changed their study methods...</p>
+            <a href="#">Read more...</a>
+        </div>
+        <div class="student">
+            <h4>Unlocking efficiency: The Power of System</h4>
+            <p>Students share how applying systems changed their study methods...</p>
+            <a href="#">Read more...</a>
+        </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-4 mt-5 border-top">
+        <div class="container d-flex justify-content-between flex-wrap">
+        <p>&copy; 2025 VL. All rights reserved.</p>
+        <div>
+            <a href="#" class="me-3 text-decoration-none">Privacy</a>
+            <a href="#" class="me-3 text-decoration-none">Terms</a>
+            <a href="#" class="text-decoration-none">Contact</a>
+        </div>
+        <div>
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/733/733547.png" alt="FB"></a>
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/733/733579.png" alt="IG"></a>
+        </div>
+        </div>
+    </footer>
+</body>
+</html>
