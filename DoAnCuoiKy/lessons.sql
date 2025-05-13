@@ -18,7 +18,7 @@ CREATE TABLE courses (
 
 
 --- -- Example data
-INSERT INTO lessons (title, level, description) VALUES
+INSERT INTO courses (title, level, description) VALUES
     ('Greetings', 'beginner', 'Learn basic Vietnamese greetings'),
     ('Numbers', 'beginner', 'Learn to count in Vietnamese');
     ('Food and Drink', 'intermediate', 'Learn vocabulary related to food and drink'),
