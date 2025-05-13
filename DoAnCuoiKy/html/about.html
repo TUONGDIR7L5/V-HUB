@@ -55,19 +55,28 @@
     padding: 4rem 0;
     background-color: #f8f9fa;
 }
+.new-section {
+    padding: 4rem 0;
+    background-color: #fff;
+}
+.section-subtitle {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+}
+.section-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+}
 .investors-section {
     padding: 4rem 0;
     text-align: center;
 }
-.investors-title {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-    color: #333;
-}
 .investor-logo {
     max-width: 150px;
-    margin: 1rem;
+    margin: 0 auto;
     filter: grayscale(100%);
     opacity: 0.7;
     transition: all 0.3s ease;
@@ -76,11 +85,15 @@
     filter: grayscale(0);
     opacity: 1;
 }
+.carousel-item img {
+    max-width: 150px;
+    margin: 0 auto;
+}
 </style>
 </head>
 <body>
 
-<!-- Navbar (giống như Home.html) -->
+<!-- Navbar  -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
 <div class="container">
     <a class="navbar-brand" href="home.html">
@@ -123,67 +136,74 @@
 <!-- About Hero Section -->
 <section class="about-hero">
 <div class="container">
-    <h1 class="about-title">About VHub</h1>
-    <h2 class="about-heading">Making every student<br>Unit topping the</h2>
-    <p class="about-content">
-    Vendor can be tailored to identify a student that is looking at what he wants
-    to do with his students. In this case, you need to find a solution in order to
-    provide your experience with the student and to address all of his needs
-    and help them achieve greater success.
-    </p>
-    <img src="../img/photoshop-icon.png" alt="Photoshop" style="max-width: 100px; margin-bottom: 2rem;">
-</div>
-</section>
-
-<!-- Stats Section -->
-<section class="stats-section">
-<div class="container">
-    <div class="row justify-content-center">
-    <div class="col-md-4">
-        <div class="stat-box">
-        <div class="stat-number">60</div>
-        <div class="stat-text">Monthly Learners</div>
+    <h1 class="about-title text-center">About VHub</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="about-heading">Making every student Unstoppable</h2>
+            <p class="about-content">
+            Whether you're a beginner or looking to improve your Vietnamese skills, we provide engaging and practical lessons, interactive exercises, and practical vocabulary to help you learn effectively.
+            </p>
+        </div>
+        <div class="col-md-6">
+            <img src="../img/about-image.png" alt="About VHub" class="img-fluid">
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="stat-box">
-        <div class="stat-number">60</div>
-        <div class="stat-text">Monthly Learners</div>
+</div>
+</section>
+
+<!-- 60 Monthly Learners -->
+<section class="new-section">
+<div class="container">
+    <h2 class="about-title text-start">60 Monthly Learners</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="../img/learner-image.png" alt="Learner Image" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+            <h3 class="section-subtitle">From a single lesson to the world</h3>
+            <p class="section-content">
+            Whether you're a beginner or looking to improve your Vietnamese skills, we provide interactive lessons, vocabulary exercises, and practical vocabulary to help you learn effectively.
+            </p>
         </div>
     </div>
-    </div>
 </div>
 </section>
 
-<!-- Mission Section -->
-<section class="mission-section">
-<div class="container">
-    <h2 class="about-heading">From a single lesson to the world</h2>
-    <p class="about-content">
-    A new project will offer an exciting approach for students to work on the
-    world and understand how to make sustainable decisions to help students
-    improve.
-    </p>
-</div>
-</section>
-
-<!-- Investors Section -->
+<!-- Investors Section (Updated with Carousel) -->
 <section class="investors-section">
 <div class="container">
-    <h3 class="investors-title">Our investors</h3>
-    <div class="d-flex flex-wrap justify-content-center">
-    <img src="../img/investor1.png" alt="Investor 1" class="investor-logo">
-    <img src="../img/investor2.png" alt="Investor 2" class="investor-logo">
-    <img src="../img/investor3.png" alt="Investor 3" class="investor-logo">
-    <img src="../img/investor4.png" alt="Investor 4" class="investor-logo">
+    <h2 class="about-title text-center">Our investors</h2>
+    <div id="investorsCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../img/investor1.png" class="investor-logo" alt="Investor 1">
+            </div>
+            <div class="carousel-item">
+                <img src="../img/investor2.png" class="investor-logo" alt="Investor 2">
+            </div>
+            <div class="carousel-item">
+                <img src="../img/investor3.png" class="investor-logo" alt="Investor 3">
+            </div>
+            <div class="carousel-item">
+                <img src="../img/investor4.png" class="investor-logo" alt="Investor 4">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#investorsCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#investorsCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
 </div>
 </section>
 
-<!-- Footer (giống như Home.html) -->
+<!-- Footer -->
 <footer class="bg-white py-4 mt-5 border-top">
 <div class="container d-flex justify-content-between flex-wrap">
-    <p>&copy; 2025 VL. All rights reserved.</p>
+    <p>© 2025 VL. All rights reserved.</p>
     <div>
     <a href="#" class="me-3 text-decoration-none">Privacy</a>
     <a href="#" class="me-3 text-decoration-none">Terms</a>
