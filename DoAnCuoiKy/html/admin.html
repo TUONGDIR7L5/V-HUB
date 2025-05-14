@@ -3,40 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin Dashboard for V-HUB - Manage courses, lessons, vocabulary, blog posts, and tests.">
+    <meta name="keywords" content="V-HUB Admin, Language Learning Platform, Vietnamese Course Management">
     <title>Admin Dashboard - V-HUB</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/YOUR_API_KEY/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <style>
-        body { background-color: #f8f9fa; font-family: 'Poppins', sans-serif; }
-        .sidebar { width: 250px; background-color: #fff; height: 100vh; position: fixed; padding: 20px; }
-        .sidebar .nav-link { color: #333; }
-        .sidebar .nav-link:hover { background-color: #f0f0f0; border-radius: 5px; }
-        .main-content { margin-left: 250px; padding: 30px; }
-        .form-section { background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-        .form-section h3 { margin-bottom: 20px; }
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: #FFF0D9;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100vh;
+            transition: all 0.3s ease;
+            padding: 0.6rem 0.7rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar:hover {
+            width: 240px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        .logo img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar:hover .logo img {
+            transform: scale(2.3);
+        }
+
+        .logo h5 {
+            font-size: 18px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            color: #F9B572;
+        }
+
+        .logo h5 span {
+            color: #000000;
+        }
+
+        .sidebar:hover .logo h5 {
+            opacity: 1;
+        }
+
+        #btn {
+            position: absolute;
+            color: #000000;
+            font-size: 24px;
+            top: 1rem;
+            left: 2.2rem;
+            cursor: pointer;
+        }
+
+        .sidebar:hover #btn {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .nav-links {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+        }
+
+        .nav-links li {
+            position: relative;
+            height: 50px;
+            margin: 0.3em auto;
+            width: 90%;
+        }
+
+        .nav-links a {
+            border-radius: 15px;
+            height: 100%;
+            width: 100%;
+            color: #333;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-links li span {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .sidebar:hover .nav-links li span {
+            opacity: 1;
+        }
+
+        .nav-links li a:hover {
+            background-color: #f0f0f0;
+            color: black;
+        }
+
+        .nav-links li a i {
+            min-width: 30px;
+            text-align: center;
+            height: 50px;
+            border-radius: 12px;
+            line-height: 50px;
+            color: #F9B572;
+            margin-right: 10px;
+        }
+
+        .nav-links li.logout a {
+            color: red;
+        }
+
+        .nav-links li.logout a i {
+            color: red;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 100px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar:hover ~ .main-content {
+            margin-left: 240px;
+        }
+
+        .yellow-banner {
+            background-color: #F9B572;
+            height: 150px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .form-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        .form-section h3 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-section .form-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .form-section .form-control,
+        .form-section .form-select {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-section .form-control:focus,
+        .form-section .form-select:focus {
+            border-color: #F9B572;
+            box-shadow: none;
+        }
+
+        .form-section .btn-primary {
+            background-color: #FBBA49;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 30px;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .form-section .btn-primary:hover {
+            background-color: #f58e42;
+            transform: translateY(-2px);
+        }
+
+        .form-section .btn-edit,
+        .form-section .btn-delete {
+            border-radius: 20px;
+            padding: 5px 15px;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        .form-section .btn-edit {
+            background-color: #F9B572;
+            border: none;
+        }
+
+        .form-section .btn-delete {
+            background-color: #e53935;
+            border: none;
+            color: #fff;
+        }
+
+        .content-list {
+            margin-bottom: 30px;
+        }
+
+        .content-list table {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        .content-list th, .content-list td {
+            padding: 10px;
+            vertical-align: middle;
+        }
+
+        .content-list th {
+            background-color: #F9F3CE;
+            color: #333;
+        }
     </style>
 </head>
 <body>
     <!-- Sidebar -->
     <div class="sidebar">
-        <h4 class="mb-4">Admin Dashboard</h4>
-        <ul class="nav flex-column">
-            <li class="nav-item"><a class="nav-link" href="#courses">Manage Courses</a></li>
-            <li class="nav-item"><a class="nav-link" href="#lessons">Manage Lessons</a></li>
-            <li class="nav-item"><a class="nav-link" href="#vocabulary">Manage Vocabulary</a></li>
-            <li class="nav-item"><a class="nav-link" href="#blog-posts">Manage Blog Posts</a></li>
-            <li class="nav-item"><a class="nav-link" href="#tests">Manage Tests</a></li>
-            <li class="nav-item"><a class="nav-link" href="#stats">Manage Stats</a></li>
-            <li class="nav-item"><a class="nav-link text-danger" href="/logout">Logout</a></li>
+        <div class="logo">
+            <img src="/DoAnCuoiKy/img/Logo50x50.png">
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="#courses">
+                    <i class="bi bi-book"></i>
+                    <span>Manage Courses</span>
+                </a>
+            </li>
+            <li>
+                <a href="#lessons">
+                    <i class="bi bi-file-text"></i>
+                    <span>Manage Lessons</span>
+                </a>
+            </li>
+            <li>
+                <a href="#vocabulary">
+                    <i class="bi bi-bookmark"></i>
+                    <span>Manage Vocabulary</span>
+                </a>
+            </li>
+            <li>
+                <a href="#blog-posts">
+                    <i class="bi bi-journal-text"></i>
+                    <span>Manage Blog Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="#tests">
+                    <i class="bi bi-check-circle"></i>
+                    <span>Manage Tests</span>
+                </a>
+            </li>
+            <li>
+                <a href="#stats">
+                    <i class="bi bi-bar-chart"></i>
+                    <span>Manage Stats</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="/logout">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
         </ul>
     </div>
 
     <!-- Main Content -->
     <div class="main-content">
+        <div class="yellow-banner">
+            Admin Dashboard - V-HUB
+        </div>
+
         <!-- Manage Courses -->
         <div id="courses" class="form-section">
             <h3>Add/Edit Course</h3>
             <form id="course-form" action="/admin/courses" method="POST">
+                <input type="hidden" name="csrf_token" value="YOUR_CSRF_TOKEN">
                 <div class="mb-3">
                     <label for="course-title" class="form-label">Title</label>
                     <input type="text" class="form-control" id="course-title" name="title" required>
@@ -59,12 +345,113 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Save Course</button>
             </form>
+
+            <!-- Course List -->
+            <div class="content-list mt-4">
+                <h4>Course List</h4>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Level</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="course-list">
+                        <!-- Dữ liệu sẽ được tải bằng JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Manage Lessons -->
+        <div id="lessons" class="form-section">
+            <h3>Add/Edit Lesson</h3>
+            <form id="lesson-form" action="/admin/lessons" method="POST">
+                <input type="hidden" name="csrf_token" value="YOUR_CSRF_TOKEN">
+                <div class="mb-3">
+                    <label for="lesson-course-id" class="form-label">Course ID</label>
+                    <input type="number" class="form-control" id="lesson-course-id" name="course_id" required>
+                </div>
+                <div class="mb-3">
+                    <label for="lesson-title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="lesson-title" name="title" required>
+                </div>
+                <div class="mb-3">
+                    <label for="lesson-description" class="form-label">Description</label>
+                    <textarea class="form-control" id="lesson-description" name="description"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="lesson-content" class="form-label">Content</label>
+                    <textarea class="form-control" id="lesson-content" name="content"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Lesson</button>
+            </form>
+
+            <!-- Lesson List -->
+            <div class="content-list mt-4">
+                <h4>Lesson List</h4>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Course ID</th>
+                            <th>Title</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lesson-list">
+                        <!-- Dữ liệu sẽ được tải bằng JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Manage Vocabulary -->
+        <div id="vocabulary" class="form-section">
+            <h3>Add/Edit Vocabulary</h3>
+            <form id="vocab-form" action="/admin/vocabulary" method="POST">
+                <input type="hidden" name="csrf_token" value="YOUR_CSRF_TOKEN">
+                <div class="mb-3">
+                    <label for="vocab-vietnamese" class="form-label">Vietnamese</label>
+                    <input type="text" class="form-control" id="vocab-vietnamese" name="vietnamese" required>
+                </div>
+                <div class="mb-3">
+                    <label for="vocab-english" class="form-label">English</label>
+                    <input type="text" class="form-control" id="vocab-english" name="english" required>
+                </div>
+                <div class="mb-3">
+                    <label for="vocab-example" class="form-label">Example Sentence</label>
+                    <textarea class="form-control" id="vocab-example" name="example"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Vocabulary</button>
+            </form>
+
+            <!-- Vocabulary List -->
+            <div class="content-list mt-4">
+                <h4>Vocabulary List</h4>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Vietnamese</th>
+                            <th>English</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="vocab-list">
+                        <!-- Dữ liệu sẽ được tải bằng JavaScript -->
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <!-- Manage Blog Posts -->
-        <div id="blog-posts" class="form-section mt-5">
+        <div id="blog-posts" class="form-section">
             <h3>Add/Edit Blog Post</h3>
             <form id="blog-form" action="/admin/blog-posts" method="POST">
+                <input type="hidden" name="csrf_token" value="YOUR_CSRF_TOKEN">
                 <div class="mb-3">
                     <label for="blog-title" class="form-label">Title</label>
                     <input type="text" class="form-control" id="blog-title" name="title" required>
@@ -75,18 +462,112 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Save Blog Post</button>
             </form>
+
+            <!-- Blog Post List -->
+            <div class="content-list mt-4">
+                <h4>Blog Post List</h4>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="blog-list">
+                        <!-- Dữ liệu sẽ được tải bằng JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Manage Tests -->
+        <div id="tests" class="form-section">
+            <h3>Add/Edit Test Question</h3>
+            <form id="test-form" action="/admin/tests" method="POST">
+                <input type="hidden" name="csrf_token" value="YOUR_CSRF_TOKEN">
+                <div class="mb-3">
+                    <label for="test-question" class="form-label">Question</label>
+                    <textarea class="form-control" id="test-question" name="question" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="test-type" class="form-label">Type</label>
+                    <select class="form-select" id="test-type" name="type" required>
+                        <option value="multiple_choice">Multiple Choice</option>
+                        <option value="fill_in">Fill in the Blank</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Question</button>
+            </form>
+
+            <!-- Test List -->
+            <div class="content-list mt-4">
+                <h4>Test Question List</h4>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Question</th>
+                            <th>Type</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="test-list">
+                        <!-- Dữ liệu sẽ được tải bằng JavaScript -->
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
     <script>
-        // Khởi tạo TinyMCE cho các textarea
+        // Kiểm tra quyền admin
+        fetch('/api/check-admin', {
+            method: 'GET',
+            credentials: 'same-origin'
+        }).then(response => {
+            if (!response.ok) {
+                window.location.href = '/login';
+            }
+        });
+
+        // Toggle sidebar
+        const btn = document.querySelector('#btn');
+        const sidebar = document.querySelector('.sidebar');
+        btn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        // Khởi tạo TinyMCE
         tinymce.init({
             selector: 'textarea',
             plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table paste code help wordcount',
-            toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | link image | code preview',
+            toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | link image media | code preview',
             height: 400,
             menubar: false,
-            content_style: 'body { font-family: Poppins, sans-serif; font-size: 14px }'
+            content_style: 'body { font-family: Poppins, sans-serif; font-size: 14px }',
+            images_upload_url: '/admin/upload-image',
+            automatic_uploads: true,
+            file_picker_types: 'image media',
+            file_picker_callback: (callback, value, meta) => {
+                const input = document.createElement('input');
+                input.setAttribute('type', 'file');
+                input.setAttribute('accept', 'image/*,video/*');
+                input.onchange = function () {
+                    const file = this.files[0];
+                    const reader = new FileReader();
+                    reader.onload = function () {
+                        const id = 'blobid' + (new Date()).getTime();
+                        const blobCache = tinymce.activeEditor.editorUpload.blobCache;
+                        const base64 = reader.result.split(',')[1];
+                        const blobInfo = blobCache.create(id, file, base64);
+                        blobCache.add(blobInfo);
+                        callback(blobInfo.blobUri(), { title: file.name });
+                    };
+                    reader.readAsDataURL(file);
+                };
+                input.click();
+            }
         });
 
         // Gửi form qua AJAX
@@ -96,7 +577,7 @@
                 const formData = new FormData(form);
                 const data = {};
                 formData.forEach((value, key) => {
-                    if (key === 'content' || key === 'description') {
+                    if (key === 'content' || key === 'description' || key === 'question' || key === 'example') {
                         value = tinymce.get(key).getContent();
                     }
                     data[key] = value;
@@ -108,8 +589,123 @@
                 });
                 const result = await response.json();
                 alert(result.message);
+                loadContentLists(); // Cập nhật danh sách sau khi lưu
             });
         });
+
+        // Tải danh sách nội dung
+        async function loadContentLists() {
+            // Courses
+            const courseResponse = await fetch('/api/courses');
+            const courses = await courseResponse.json();
+            document.querySelector('#course-list').innerHTML = courses.map(course => `
+                <tr>
+                    <td>${course.course_id}</td>
+                    <td>${course.title}</td>
+                    <td>${course.level}</td>
+                    <td>
+                        <button class="btn btn-edit" onclick="editCourse(${course.course_id})">Edit</button>
+                        <button class="btn btn-delete" onclick="deleteCourse(${course.course_id})">Delete</button>
+                    </td>
+                </tr>
+            `).join('');
+
+            // Lessons
+            const lessonResponse = await fetch('/api/lessons');
+            const lessons = await lessonResponse.json();
+            document.querySelector('#lesson-list').innerHTML = lessons.map(lesson => `
+                <tr>
+                    <td>${lesson.lesson_id}</td>
+                    <td>${lesson.course_id}</td>
+                    <td>${lesson.title}</td>
+                    <td>
+                        <button class="btn btn-edit" onclick="editLesson(${lesson.lesson_id})">Edit</button>
+                        <button class="btn btn-delete" onclick="deleteLesson(${lesson.lesson_id})">Delete</button>
+                    </td>
+                </tr>
+            `).join('');
+
+            // Vocabulary
+            const vocabResponse = await fetch('/api/vocabulary');
+            const vocab = await vocabResponse.json();
+            document.querySelector('#vocab-list').innerHTML = vocab.map(v => `
+                <tr>
+                    <td>${v.word_id}</td>
+                    <td>${v.vietnamese}</td>
+                    <td>${v.english}</td>
+                    <td>
+                        <button class="btn btn-edit" onclick="editVocab(${v.word_id})">Edit</button>
+                        <button class="btn btn-delete" onclick="deleteVocab(${v.word_id})">Delete</button>
+                    </td>
+                </tr>
+            `).join('');
+
+            // Blog Posts
+            const blogResponse = await fetch('/api/blog-posts');
+            const blogs = await blogResponse.json();
+            document.querySelector('#blog-list').innerHTML = blogs.map(blog => `
+                <tr>
+                    <td>${blog.post_id}</td>
+                    <td>${blog.title}</td>
+                    <td>
+                        <button class="btn btn-edit" onclick="editBlog(${blog.post_id})">Edit</button>
+                        <button class="btn btn-delete" onclick="deleteBlog(${blog.post_id})">Delete</button>
+                    </td>
+                </tr>
+            `).join('');
+
+            // Tests
+            const testResponse = await fetch('/api/tests');
+            const tests = await testResponse.json();
+            document.querySelector('#test-list').innerHTML = tests.map(test => `
+                <tr>
+                    <td>${test.test_id}</td>
+                    <td>${test.question}</td>
+                    <td>${test.type}</td>
+                    <td>
+                        <button class="btn btn-edit" onclick="editTest(${test.test_id})">Edit</button>
+                        <button class="btn btn-delete" onclick="deleteTest(${test.test_id})">Delete</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Hàm chỉnh sửa (cần triển khai thêm backend)
+        async function editCourse(id) {
+            const response = await fetch(`/api/courses/${id}`);
+            const course = await response.json();
+            document.querySelector('#course-title').value = course.title;
+            document.querySelector('#course-level').value = course.level;
+            tinymce.get('course-description').setContent(course.description);
+            tinymce.get('course-content').setContent(course.content);
+        }
+
+        async function deleteCourse(id) {
+            if (confirm('Are you sure you want to delete this course?')) {
+                await fetch(`/api/courses/${id}`, { method: 'DELETE' });
+                loadContentLists();
+            }
+        }
+
+        // Tương tự cho các hàm edit/delete khác
+        async function editLesson(id) {
+            const response = await fetch(`/api/lessons/${id}`);
+            const lesson = await response.json();
+            document.querySelector('#lesson-course-id').value = lesson.course_id;
+            document.querySelector('#lesson-title').value = lesson.title;
+            tinymce.get('lesson-description').setContent(lesson.description);
+            tinymce.get('lesson-content').setContent(lesson.content);
+        }
+
+        async function deleteLesson(id) {
+            if (confirm('Are you sure you want to delete this lesson?')) {
+                await fetch(`/api/lessons/${id}`, { method: 'DELETE' });
+                loadContentLists();
+            }
+        }
+
+        // Load danh sách nội dung khi trang được tải
+        document.addEventListener('DOMContentLoaded', loadContentLists);
     </script>
 </body>
 </html>
