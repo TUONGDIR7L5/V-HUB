@@ -16,6 +16,30 @@ CREATE TABLE courses (
 );
 
 
+--- Update 
+UPDATE courses SET
+    category = CASE
+        WHEN course_id = 1 THEN 'Vocabulary'
+        WHEN course_id = 2 THEN 'Vocabulary'
+        WHEN course_id = 3 THEN 'Vocabulary'
+        WHEN course_id = 4 THEN 'Vocabulary'
+        WHEN course_id = 5 THEN 'Grammar'
+        WHEN course_id = 6 THEN 'Vocabulary'
+    END,
+    duration = 30,
+    image_url = CASE
+        WHEN course_id = 1 THEN 'woman-with-book-board.png'
+        WHEN course_id = 4 THEN 'woman-with-headphones.png'
+        WHEN course_id = 5 THEN 'woman-with-chart.png'
+        ELSE NULL
+    END,
+    content = '<p>Course content goes here...</p>',
+    order_number = course_id,
+    created_by = 1;
+
+-- Them Index
+CREATE INDEX idx_courses_category ON courses(category);
+
 
 --- -- Example data
 INSERT INTO courses (title, level, description) VALUES
