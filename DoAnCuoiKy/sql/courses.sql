@@ -16,7 +16,7 @@ CREATE TABLE courses (
 );
 
 
---- Update 
+--- Update
 UPDATE courses SET
     category = CASE
         WHEN course_id = 1 THEN 'Vocabulary'
