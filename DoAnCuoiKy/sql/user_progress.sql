@@ -6,7 +6,7 @@ CREATE TABLE user_progress (
     score INT, -- Điểm bài kiểm tra (0-100)
     completed_at TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(user_id),
-    FOREIGN KEY (course_id) REFERENCES lessons(course_id)
+    FOREIGN KEY (course_id) REFERENCES courses(course_id)
 );
 
 
