@@ -1,752 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Blog | Smart Learning</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<style>
-:root {
-    --primary-color: #f58e42;
-    --secondary-color: #fff8d4;
-    --text-color: #333;
-    --text-light: #666;
-    --border-color: #eee;
-    --bg-light: #f5f5f5;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - VL</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style4Blog.css">
+    <link rel="icon" href="../img/logo.ico" type="image/x-icon">
 
-/* Base Styles */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    overflow-x: hidden;
-}
-
-/* Navbar Responsive */
-.navbar {
-    padding: 1rem 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-
-.navbar-brand img {
-    width: 50px;
-    height: auto;
-}
-
-.navbar-nav {
-    align-items: center;
-}
-
-.nav-link {
-    padding: 0.5rem 1rem;
-    font-size: 0.95rem;
-}
-
-.dropdown-menu {
-    border: none;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-radius: 8px;
-}
-
-.dropdown-item {
-    padding: 0.5rem 1.5rem;
-}
-
-.dropdown-item span {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.dropdown-item img {
-    width: 20px;
-    height: 20px;
-}
-
-#sign-in, #sign-up {
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-}
-
-#sign-in:hover, #sign-up:hover {
-    transform: translateY(-2px);
-}
-
-/* Blog Container */
-.blog-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-}
-
-/* Blog Post */
-.blog-post {
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid var(--border-color);
-    display: flex;
-    gap: 2rem;
-    align-items: flex-start;
-    min-height: 180px;
-}
-
-.blog-post-image {
-    flex: 0 0 200px;
-    height: 150px;
-    background-color: var(--bg-light);
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid var(--border-color);
-}
-
-.blog-post-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.blog-post-image .placeholder {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #999;
-    font-size: 0.9rem;
-}
-
-.blog-post-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.blog-post h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: var(--text-color);
-    line-height: 1.3;
-}
-
-.blog-post p {
-    color: var(--text-light);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
-.read-more {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-    display: inline-block;
-    transition: transform 0.3s ease;
-}
-
-.read-more:hover {
-    transform: translateX(5px);
-}
-
-/* Badges & Metadata */
-.new-badge {
-    background-color: var(--primary-color);
-    color: white;
-    font-size: 0.7rem;
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-    display: inline-block;
-    margin-bottom: 0.5rem;
-}
-
-.reading-time {
-    color: #999;
-    font-size: 0.8rem;
-    margin-bottom: 0.5rem;
-}
-
-/* Section Titles */
-.section-title {
-    font-size: 1.5rem;
-    margin: 3rem 0 1.5rem;
-    color: var(--text-color);
-    font-weight: 600;
-    position: relative;
-    padding-bottom: 0.5rem;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50px;
-    height: 3px;
-    background-color: var(--primary-color);
-}
-
-/* Quick Links */
-.quick-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.quick-links div {
-    min-width: 150px;
-}
-
-.quick-links h4 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    color: var(--text-color);
-}
-
-.quick-links a {
-    display: block;
-    color: var(--text-light);
-    text-decoration: none;
-    margin-bottom: 0.5rem;
-    transition: color 0.3s ease;
-}
-
-.quick-links a:hover {
-    color: var(--primary-color);
-}
-
-/* Footer */
-footer {
-    background-color: white;
-    padding: 2rem 0;
-    margin-top: 3rem;
-    border-top: 1px solid var(--border-color);
-}
-
-footer img {
-    width: 24px;
-    height: 24px;
-    margin-right: 1rem;
-    transition: transform 0.3s ease;
-}
-
-footer img:hover {
-    transform: translateY(-3px);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 992px) {
-    .blog-container {
-        padding: 2rem;
-    }
-    
-    .blog-post h2 {
-        font-size: 1.6rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .navbar-nav {
-        padding-top: 1rem;
-    }
-    
-    .nav-item {
-        margin-bottom: 0.5rem;
-    }
-    
-    #sign-in, #sign-up {
-        margin-top: 0.5rem;
-        width: 100%;
-    }
-    
-    .blog-post {
-        flex-direction: column;
-        min-height: auto;
-        gap: 1.5rem;
-    }
-    
-    .blog-post-image {
-        width: 100%;
-        height: 200px;
-        flex: 0 0 auto;
-    }
-    
-    .blog-post h2 {
-        font-size: 1.4rem;
-    }
-    
-    .quick-links {
-        gap: 1.5rem;
-    }
-    
-    footer .container {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-    }
-    
-    footer div {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 576px) {
-    .blog-container {
-        padding: 1.5rem;
-    }
-    
-    .blog-post {
-        margin-bottom: 2rem;
-        padding-bottom: 1.5rem;
-    }
-    
-    .blog-post-image {
-        height: 180px;
-    }
-    
-    .section-title {
-        font-size: 1.3rem;
-        margin: 2rem 0 1rem;
-    }
-    
-    .quick-links {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    
-    .quick-links div {
-        width: 100%;
-    }
-}
-
-/* Animation Enhancements */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.blog-post {
-    animation: fadeIn 0.5s ease forwards;
-}
-
-/* Carousel Styles */
-.recent-articles-container {
-    position: relative;
-    margin: 2rem 0;
-    padding: 0 40px; /* Space for navigation arrows */
-}
-
-.articles-carousel {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    gap: 20px;
-    padding: 10px 0;
-    scrollbar-width: none; /* Hide scrollbar for Firefox */
-}
-
-.articles-carousel::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for Chrome/Safari */
-}
-
-.article-card {
-    flex: 0 0 calc(33.333% - 20px);
-    scroll-snap-align: start;
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    min-height: 300px;
-}
-
-.article-card:hover {
-    transform: translateY(-5px);
-}
-
-.article-image {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-}
-
-.article-content {
-    padding: 15px;
-    background: white;
-}
-
-.article-content h4 {
-    margin: 0 0 10px 0;
-    font-size: 1.2rem;
-    color: var(--text-color);
-}
-
-.article-content p {
-    color: var(--text-light);
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.carousel-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    background: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    cursor: pointer;
-    z-index: 1;
-    border: none;
-    opacity: 0.8;
-    transition: opacity 0.3s;
-}
-
-.carousel-nav:hover {
-    opacity: 1;
-}
-
-.carousel-nav.prev {
-    left: 0;
-}
-
-.carousel-nav.next {
-    right: 0;
-}
-
-.carousel-nav svg {
-    width: 20px;
-    height: 20px;
-    fill: var(--primary-color);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 992px) {
-    .article-card {
-        flex: 0 0 calc(50% - 15px);
-    }
-}
-
-@media (max-width: 768px) {
-    .article-card {
-        flex: 0 0 100%;
-    }
-    
-    .recent-articles-container {
-        padding: 0 20px;
-    }
-    
-    .carousel-nav {
-        width: 30px;
-        height: 30px;
-    }
-}
-
-/* Animation for hover effect */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.article-card {
-    animation: fadeIn 0.5s ease forwards;
-}
-
-.blog-post:nth-child(2) { animation-delay: 0.1s; }
-.blog-post:nth-child(3) { animation-delay: 0.2s; }
-.blog-post:nth-child(4) { animation-delay: 0.3s; }
-</style>
 </head>
+
 <body>
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
-<div class="container">
-    <a class="navbar-brand" href="#">
-    <img id="logo" src="../img/Logo50x50.png" alt="VL Logo">
-    </a>
-    
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-    <ul class="navbar-nav me-3 align-items-center">
-        <li class="nav-item">
-        <a class="nav-link text-dark" href="home.html">Home</a>
-        </li>
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Our Courses
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#"><span><img src="../img/grammar.png" alt=""> Grammar</span></a></li>
-            <li><a class="dropdown-item" href="#"><span><img src="../img/vocab.png" alt=""> Vocabulary</span></a></li>
-            <li><a class="dropdown-item" href="#"><span><img src="../img/listen.png" alt=""> Listening</span></a></li>
-        </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link active fw-bold" href="blog.html">Blog</a></li>
-        <li class="nav-item"><a class="nav-link text-dark" href="test.html">Test</a></li>
-        <li class="nav-item"><a class="nav-link text-dark" href="#">About</a></li>
-        <li class="nav-item">
-        <!-- Log in Button -->
-        <button id="sign-in" class="btn rounded-pill me-2 px-4 py-1" style="background-color: var(--secondary-color); border: 1px solid black;">Log in</button>
-        <!-- Sign up Button -->
-        <button id="sign-up" class="btn rounded-pill px-4 py-1" style="background-color: var(--secondary-color); border: 1px solid var(--primary-color);">Sign up</button>
-        </li>
-    </ul>
-    </div>
-</div>
-</nav>
-
-<!-- Blog Content -->
-<div class="blog-container">
-<!-- Main Highlight -->
-<div class="blog-post">
-    <div class="blog-post-image">
-        <!-- Khi có ảnh, thay thế div placeholder bằng thẻ img -->
-        <!-- <img src="../img/blog-image1.jpg" alt="Blog post image"> -->
-        <div class="placeholder">[Image placeholder]</div>
-    </div>
-    <div class="blog-post-content">
-        <div>
-            <div class="new-badge">New!</div>
-            <div class="reading-time">3 min read</div>
-            <h2>Unlocking efficiency: The Power of Learning</h2>
-            <p>Whether you're a beginner or looking to improve your Vietnamese skills, we provide easy-to-follow lessons, interactive exercises, and practical vocabulary to help you learn effectively.</p>
-        </div>
-        <a href="#" class="read-more">Read more...</a>
-    </div>
-</div>
-
-<!-- Recent Articles Carousel -->
-<section class="recent-articles py-5">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
     <div class="container">
-        <h3 class="section-title text-right mb-4">Our Recent Articles:</h3>
+        <a class="navbar-brand" href="#">
+        <img id="logo" src="../img/Logo50x50.png" alt="VL Logo">
+        </a>
         
-        <div id="recentArticlesCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-            <div class="carousel-inner">
+        <button class="navbar-toggler" type="button" title="Toggle navigation" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+        </button>
 
-                <!-- Slide 1 -->
-                <div class="carousel-item active">
-                    <div class="row justify-content-center">
-                        
-                        <!-- Article 1 -->
-                        <div class="col-md-4 mb-4">
-                            <div class="card shadow-sm border-0 h-100">
-                                <div class="bg-warning" style="height: 180px;"></div>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title fw-bold">Unlocking efficiency: The Power of System</h5>
-                                    <p class="card-text small text-muted">Improve your skills with smart systems and workflows...</p>
-                                    <a href="#" class="text-warning fw-bold small">Read more...</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Article 2 -->
-                        <div class="col-md-4 mb-4 d-none d-md-block">
-                            <div class="card shadow-sm border-0 h-100">
-                                <div class="bg-warning" style="height: 180px;"></div>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title fw-bold">Effective Communication in Teams</h5>
-                                    <p class="card-text small text-muted">Learn how to communicate effectively and boost productivity...</p>
-                                    <a href="#" class="text-warning fw-bold small">Read more...</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Article 3 -->
-                        <div class="col-md-4 mb-4 d-none d-md-block">
-                            <div class="card shadow-sm border-0 h-100">
-                                <div class="bg-warning" style="height: 180px;"></div>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title fw-bold">Mastering Time Management</h5>
-                                    <p class="card-text small text-muted">Discover techniques to manage your time more efficiently...</p>
-                                    <a href="#" class="text-warning fw-bold small">Read more...</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Slide 2 -->
-                <div class="carousel-item">
-                    <div class="row justify-content-center">
-                        
-                        <!-- Article 4 -->
-                        <div class="col-md-4 mb-4">
-                            <div class="card shadow-sm border-0 h-100">
-                                <div class="bg-warning" style="height: 180px;"></div>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title fw-bold">Creative Problem Solving</h5>
-                                    <p class="card-text small text-muted">Boost your creativity to solve problems in new ways...</p>
-                                    <a href="#" class="text-warning fw-bold small">Read more...</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Article 5 -->
-                        <div class="col-md-4 mb-4 d-none d-md-block">
-                            <div class="card shadow-sm border-0 h-100">
-                                <div class="bg-warning" style="height: 180px;"></div>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title fw-bold">Building Strong Leadership Skills</h5>
-                                    <p class="card-text small text-muted">Leadership skills are key to driving team success...</p>
-                                    <a href="#" class="text-warning fw-bold small">Read more...</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Article 6 -->
-                        <div class="col-md-4 mb-4 d-none d-md-block">
-                            <div class="card shadow-sm border-0 h-100">
-                                <div class="bg-warning" style="height: 180px;"></div>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title fw-bold">Technology Trends 2025</h5>
-                                    <p class="card-text small text-muted">Stay updated with the latest technology trends and innovations...</p>
-                                    <a href="#" class="text-warning fw-bold small">Read more...</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Slide 3 -->
-                <div class="carousel-item">
-                    <div class="row justify-content-center">
-                        
-                        <!-- Article 7 -->
-                        <div class="col-md-4 mb-4">
-                            <div class="card shadow-sm border-0 h-100">
-                                <div class="bg-warning" style="height: 180px;"></div>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title fw-bold">Balancing Work and Life</h5>
-                                    <p class="card-text small text-muted">Tips to maintain a healthy balance between work and personal life...</p>
-                                    <a href="#" class="text-warning fw-bold small">Read more...</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Carousel Controls
-            <button class="carousel-control-prev" type="button" data-bs-target="#recentArticlesCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#recentArticlesCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button> -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav me-3 align-items-center">
+            <li class="nav-item">
+            <a class="nav-link fw-bold" href="#">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                Our Courses
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#"><span><img id="grammar" src="../img/grammar.png" alt=""> Grammar</span></a></li>
+                <li><a class="dropdown-item" href="#"><span><img id="vocab" src="../img/vocab.png" alt=""> Vocabulary</span></a></li>
+                <li><a class="dropdown-item" href="#"><span><img id="listen" src="../img/listen.png" alt=""> Listening</span></a></li>
+            </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link text-dark" href="#">Blog</a></li>
+            <li class="nav-item"><a class="nav-link text-dark" href="#">Test</a></li>
+            <li class="nav-item"><a class="nav-link text-dark" href="#">About</a></li>
+            <li class="nav-item">
+            <!-- Nút Log in -->
+            <button id="sign-in" class="btn rounded-pill me-2 px-4 py-1" style="background-color: #fff8d4; border: 1px solid black;">Log in</button>
+            <!-- Nút Sign up -->
+            <button id="sign-up" class="btn rounded-pill px-4 py-1" style="background-color: #fff8d4; border: 1px solid #f58e42;">Sign up</button>
+            </li>
+        </ul>
+        
         </div>
     </div>
-</section>
+    </nav>
 
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="path/to/hero-image.jpg" alt="Hero Image">
+        <div class="hero-text">
+            <h1>How to Stay Motivated in Language Learning</h1>
+            <p>Learning a new language can be a rewarding journey—but it’s not always easy. Whether you’re learning Vietnamese, English, or any other language...</p>
+        </div>
+    </section>
 
-
-
-<!-- Student's Voice Section -->
-<div class="student-voice-container">
-    <h3 class="section-title">Our Student's Voice</h3>
-    <div class="student-voice-content">
-        <div class="student-voice-post">
-            <div class="blog-post-image">
-                <div class="placeholder">[Image placeholder]</div>
-            </div>
-            <div class="blog-post-content">
+    <!-- Recent Articles -->
+    <div class="section">
+        <h2>Our Recent Articles:</h2>
+        <div class="grid">
+            <div class="article">
+                <div class="image-container">
+                    <img src="path/to/image1.jpg" alt="Article Image">
+                </div>
                 <div>
-                    <h2>Unlocking efficiency: The Power of System</h2>
+                    <h3>From Beginner to Confident Speaker</h3>
+                    <p>Improve your skills with smart systems and workflows...</p>
+                    <a href="#">Read more...</a>
+                </div>
+            </div>
+            <div class="article">
+                <div class="image-container">
+                    <img src="path/to/image2.jpg" alt="Article Image">
+                </div>
+                <div>
+                    <h3>Vietnamese Festivals You Should Not Miss</h3>
+                    <p>Learn how to communicate effectively and boost productivity...</p>
+                    <a href="#">Read more...</a>
+                </div>
+            </div>
+            <div class="article">
+                <div class="image-container">
+                    <img src="path/to/image3.jpg" alt="Article Image">
+                </div>
+                <div>
+                    <h3>What Makes Vietnamese Culture Unique?</h3>
+                    <p>Discover techniques to manage your time more efficiently...</p>
+                    <a href="#">Read more...</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Our Student's Voice -->
+    <div class="section">
+        <h2>Our Student's Voice</h2>
+        <div class="grid">
+            <div class="student-voice">
+                <div class="image-container">
+                    <img src="path/to/student-image1.jpg" alt="Student Image">
+                </div>
+                <div>
+                    <h3>Why I Chose to Learn Vietnamese</h3>
                     <p>Whether you're a beginner or looking to improve your teammates with and talk...</p>
+                    <a href="#">Read more...</a>
                 </div>
-                <a href="#" class="read-more">Read more...</a>
             </div>
-        </div>
-
-        <div class="student-voice-post">
-            <div class="blog-post-image">
-                <div class="placeholder">[Image placeholder]</div>
-            </div>
-            <div class="blog-post-content">
+            <div class="student-voice">
+                <div class="image-container">
+                    <img src="path/to/student-image2.jpg" alt="Student Image">
+                </div>
                 <div>
-                    <h2>Student Success Story: From Beginner to Fluent</h2>
+                    <h3>How I Learned Vietnamese in 6 Months</h3>
                     <p>How one student transformed their language skills in just 3 months...</p>
+                    <a href="#">Read more...</a>
                 </div>
-                <a href="#" class="read-more">Read more...</a>
             </div>
-        </div>
-
-        <div class="student-voice-post">
-            <div class="blog-post-image">
-                <div class="placeholder">[Image placeholder]</div>
-            </div>
-            <div class="blog-post-content">
+            <div class="student-voice">
+                <div class="image-container">
+                    <img src="path/to/student-image3.jpg" alt="Student Image">
+                </div>
                 <div>
-                    <h2>How Our Methods Helped Me Ace My Exam</h2>
+                    <h3>How I Handle Stress While Studying in Vietnam</h3>
                     <p>A testimonial from a student who achieved top marks using our system...</p>
+                    <a href="#">Read more...</a>
                 </div>
-                <a href="#" class="read-more">Read more...</a>
             </div>
         </div>
     </div>
-</div>
 
+    <!-- Footer -->
+    <footer class="bg-light text-dark py-4">
+        <div class="container">
+        <div class="row">
+            <!-- Cột đầu tiên chiếm 5 phần -->
+            <div class="col-md-5 mb-4">
+            <img id="logo-in-footer" src="../img/logoFooter.png" alt="Logo Footer">
+            <p id="text-in-footer">
+                We're always finding out the best ways to help you master in learning Vietnamese!
+            </p>
+            </div>
+    
+            <!-- Cột thứ hai chiếm 7 phần và được chia 3 phần con -->
+            <div class="col-md-7 mb-4">
+            <div class="row">
+                <!-- Phần con 1 -->
+                <div class="col-md-4">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-dark text-decoration-none">Test</a></li>
+                    <li><a href="#" class="text-dark text-decoration-none">Courses</a></li>
+                    <li><a href="#" class="text-dark text-decoration-none">Blog</a></li>
+                </ul>
+                </div>
+                <!-- Phần con 2 -->
+                <div class="col-md-4">
+                <h5>Terms & Conditions</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-dark text-decoration-none">Privacy</a></li>
+                    <li><a href="#" class="text-dark text-decoration-none">Terms of Use</a></li>
+                    <li><a href="#" class="text-dark text-decoration-none">Contact</a></li>
+                </ul>
+                </div>
+                <!-- Phần con 3 -->
+                <div class="col-md-4">
+                <h5>Social Media</h5>
+                <div class="social-grid">
+                    <a href="#" class="text-dark me-3"><i class="bi bi-envelope"></i></a>
+                    <a href="#" class="text-dark me-3"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-dark me-3"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-dark"><i class="bi bi-twitter-x"></i></a>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </footer>
 
-<!-- Quick Links -->
-<div class="quick-links">
-    <div>
-    <h4>Quick Links</h4>
-    <a href="#">Test</a>
-    <a href="#">Courses</a>
-    <a href="#">Blog</a>
-    </div>
-    <div>
-    <h4>Legal</h4>
-    <a href="#">Terms & Conditions</a>
-    <a href="#">Privacy</a>
-    <a href="#">Terms of use</a>
-    <a href="#">Contact</a>
-    </div>
-    <div>
-    <h4>Social Media</h4>
-    <a href="#">Facebook</a>
-    <a href="#">Instagram</a>
-    <a href="#">Twitter</a>
-    </div>
-</div>
-</div>
-
-<!-- Footer -->
-<footer class="bg-white py-4 mt-5 border-top">
-<div class="container d-flex justify-content-between flex-wrap">
-    <p>&copy; 2025 VL. All rights reserved.</p>
-    <div>
-    <a href="#" class="me-3 text-decoration-none">Privacy</a>
-    <a href="#" class="me-3 text-decoration-none">Terms</a>
-    <a href="#" class="text-decoration-none">Contact</a>
-    </div>
-    <div>
-    <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/733/733547.png" alt="FB"></a>
-    <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/733/733579.png" alt="IG"></a>
-    </div>
-</div>
-</footer>
+    <script src="script.js"></script>
 </body>
 </html>
