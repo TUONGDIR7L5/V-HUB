@@ -1,0 +1,329 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+/* Navbar Custom Styles */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img#logo {
+    width: 50px;
+    height: 50px;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.1rem;
+    margin: 0 10px;
+}
+
+.dropdown-menu img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+#sign-in, #sign-up {
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+#sign-in:hover, #sign-up:hover {
+    background-color: #FBBC05;
+    color: white;
+}
+
+/* Hero Section */
+.hero {
+    padding: 50px 0;
+}
+
+.hero .image-container {
+    width: 500px;
+    height: 350px;
+    overflow: hidden;
+}
+
+.hero .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero .tag-container {
+    display: inline-flex;
+    align-items: center;
+    background-color: #e9ecef;
+    border-radius: 20px;
+    padding: 2px;
+}
+
+.hero .badge {
+    background-color: #FBBC05;
+    color: black;
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    border-radius: 20px 0 0 20px;
+    margin-right: 5px;
+}
+
+.hero .read-time {
+    font-size: 0.9rem;
+    color: black;
+    padding: 5px 10px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.hero a {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Section (Recent Articles & Our Student's Voice) */
+.section {
+    padding: 40px 0;
+}
+
+.section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+/* Carousel for Recent Articles */
+#recentArticlesCarousel {
+    position: relative;
+}
+
+.carousel-indicators {
+    bottom: -50px;
+}
+
+.carousel-indicators button {
+    background-color: #ccc;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.carousel-indicators .active {
+    background-color: #FBBC05;
+}
+
+.carousel-item {
+    padding: 0 40px; /* Để dành không gian cho nút điều hướng */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 40px;
+    background: none;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #333;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.article {
+    display: flex;
+    flex-direction: column; /* Chuyển sang bố cục dọc */
+    align-items: flex-start; /* Căn trái */
+    margin-bottom: 20px;
+}
+
+.article .image-container {
+    width: 100%; /* Hình ảnh chiếm toàn bộ chiều rộng của article */
+    height: 150px; /* Chiều cao cố định */
+    overflow: hidden;
+    margin-bottom: 15px; /* Khoảng cách giữa hình ảnh và văn bản */
+}
+
+.article .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.article .article-text {
+    text-align: left; /* Căn trái văn bản */
+}
+
+.article h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.article p {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 10px;
+}
+
+.article a {
+    font-size: 1rem;
+    color: #FBBC05;
+    text-decoration: none;
+}
+
+.article a:hover {
+    text-decoration: underline;
+}
+
+/* Our Student's Voice */
+.grid {
+    display: flex;
+    flex-direction: column; /* Hiển thị các bài viết theo cột dọc */
+    gap: 30px;
+}
+
+.student-voice {
+    display: flex;
+    flex-direction: row; /* Chuyển sang bố cục ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    margin-bottom: 20px;
+}
+
+.student-voice .image-container {
+    width: 300px; /* Chiều rộng cố định */
+    height: 150px; /* Chiều cao cố định */
+    overflow: hidden;
+    margin-right: 20px; /* Khoảng cách giữa hình ảnh và văn bản */
+}
+
+.student-voice .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.student-voice .student-text {
+    text-align: left; /* Căn trái văn bản */
+    flex: 1; /* Văn bản chiếm toàn bộ không gian còn lại */
+}
+
+.student-voice h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.student-voice p {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 10px;
+}
+
+.student-voice a {
+    font-size: 1rem;
+    color: #FBBC05;
+    text-decoration: none;
+}
+
+.student-voice a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+}
+
+footer img#logo-in-footer {
+    width: 150px;
+    margin-bottom: 15px;
+}
+
+footer #text-in-footer {
+    font-size: 1rem;
+    color: #6c757d;
+    max-width: 300px;
+}
+
+footer h5 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer .social-grid a {
+    font-size: 1.5rem;
+    color: #333;
+    transition: color 0.3s;
+}
+
+footer .social-grid a:hover {
+    color: #FBBC05;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .carousel-item .col-md-4 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero .image-container {
+        width: 100%;
+        height: 250px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .article .image-container, .student-voice .image-container {
+        width: 100%; /* Hình ảnh chiếm toàn bộ chiều rộng trên thiết bị nhỏ */
+        height: 120px;
+    }
+
+    .article h3, .student-voice h3 {
+        font-size: 1.1rem;
+    }
+
+    .carousel-item .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* Điều chỉnh Our Student's Voice trên thiết bị nhỏ */
+    .section .row .col-md-3,
+    .section .row .col-md-9 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .section .row .col-md-3 h2 {
+        margin-bottom: 20px;
+    }
+}
